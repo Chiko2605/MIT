@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAIN WEBSITE</title>
+    <link rel="stylesheet" href="Raufi.css">
+</head>
+<body>
+    <div id="welcome-screen">
+  <div class="intro-content">
+    <h1 class="bounce-text">WELCOME</h1>
+    <button id="btn-masuk"><img src="BUTTON_MIT_INTRO-removebg-preview.png" alt="Enter" class="enter-img"></button>
+  </div>
+</div>
+
+<audio id="backsound" loop>
+  <source src="20263926_pirates-of-the-caribbean_by_mikestown_preview.mp3" type="audio/mpeg">
+</audio>
+
+<div id="main-content">
+  </div>
+
+<div id="main-content">
+</div>
+    <img src="MIT-Logo (1).png" alt="Deskripsi Foto" class="Tittle">
+    <p1>Founded to accelerate the nation’s industrial revolution, MIT is profoundly American. With ingenuity and drive, our graduates have invented fundamental technologies, launched new industries, and created millions of American jobs. At the same time, and without the slightest sense of contradiction, MIT is profoundly global. Our community gains tremendous strength as a magnet for talent from around the world. Through teaching, research, and innovation, MIT’s exceptional community pursues its mission of service to the nation and the world.</p1>
+    <img src="MIT LOGO.jpg" alt="Deskripsi Foto" class="Logo">
+
+    <h1>SEVERAL FUN FACTS !</h1>
+
+    
+    <div class="grid-2x2">
+    
+    <div class="kolom-grid">
+        <p class="judul-video">History</p>
+        <a href="Raufi HIstory.htm"><video src="HISTORY.mp4" autoplay loop muted class="video-samping"></video></a>
+    </div>
+    
+    <div class="kolom-grid">
+        <p class="judul-video">Innovation</p>
+        <a href="inovasi.htm"><video src="INOVATION VIDEO.mp4" autoplay loop muted class="video-samping"></video></a>
+    </div>
+
+    <div class="kolom-grid">
+        <p class="judul-video">Famous Scientist</p>
+        <a href="Scientist.htm"><video src="Scientist.mp4" autoplay loop muted class="video-samping"></video></a>
+    </div>
+    
+    <div class="kolom-grid">
+        <p class="judul-video">Extraclass</p>
+        <a href="Extra.htm"><video src="Extraclass.mp4" autoplay loop muted class="video-samping"></video></a>
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+  <script>
+  const isRefresh = performance.getEntriesByType("navigation")[0]?.type === "reload";
+
+  if (isRefresh) {
+    sessionStorage.removeItem('sudahNontonIntro');
+  }
+
+  const welcomeScreen = document.getElementById('welcome-screen');
+  const btnMasuk = document.getElementById('btn-masuk');
+  const lagu = document.getElementById('backsound');
+
+  // Cek apakah pembaca balik dari halaman cabang
+  if (sessionStorage.getItem('sudahNontonIntro') === 'true') {
+    welcomeScreen.style.display = 'none';
+    lagu.play().catch(error => console.log("Audio diblokir"));
+  } else {
+    // Jalankan ini saat tombol MASUK diklik
+    btnMasuk.addEventListener('click', function() {
+      // 1. Mulai proses memudar (fade)
+      welcomeScreen.style.opacity = '0';
+      
+      // 2. Putar lagu (pasti berhasil karena dipicu oleh klik)
+      lagu.play().catch(error => console.log("Gagal memutar lagu:", error));
+      
+      // 3. Tunggu sampai animasi memudar selesai, lalu hilangkan layarnya
+      welcomeScreen.addEventListener('transitionend', function() {
+        welcomeScreen.style.display = 'none';
+        sessionStorage.setItem('sudahNontonIntro', 'true');
+      }, { once: true });
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'CinzelBiasa';   /* Nama panggilan bebas untuk di CSS */
+    src: url('GentleHearts-Regular.ttf');
+}
+
+
+.Tittle {
+    display: block;
+    margin: 3px auto; /* 3px untuk atas-bawah, 'auto' biar otomatis ke tengah kiri-kanan */
+    width: 25%;
+    height: auto;
+
+}
+
+h1{
+    text-align: center;
+    font-family: 'CinzelBiasa';
+    font-size: 40px;
+  text-decoration: underline;
+  
+  /* Opsional: Mengatur jarak antara teks dan garis bawah (hanya berfungsi di browser modern) */
+  text-underline-offset: 8px; 
+  
+  /* Opsional: Mengatur ketebalan garis bawah */
+  text-decoration-thickness: 3px; 
+}
+
+.tombol-kembali {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #333; /* Warna dasar tombol (bisa diganti sesuai tema) */
+  color: #fff; /* Warna teks putih */
+  text-decoration: none; /* Menghilangkan garis bawah bawaan link */
+  border-radius: 8px; /* Membuat sudut tombol jadi melengkung halus */
+  font-family: sans-serif;
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Efek transisi halus saat disentuh mouse */
+  margin-top: 20px; /* Jarak dari teks di atasnya */
+}
+
+/* Efek ketika tombol disorot atau disentuh mouse */
+.tombol-kembali:hover {
+  background-color: #555; /* Warna berubah sedikit lebih terang saat di-hover */
+}
+
+.konten-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  max-width: 900px;
+  margin: 50px auto; /* Memberi jarak antar baris ke bawah */
+  padding: 0 20px;
+}
+
+.bagian-gambar {
+  flex: 1;
+}
+
+.bagian-gambar img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.bagian-teks {
+  flex: 1.5;
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+
+/* Biar pas di HP layarnya tidak kesempitan, otomatis berjejer ke bawah */
+@media (max-width: 768px) {
+  .konten-wrapper {
+    flex-direction: column;
+  }
+}

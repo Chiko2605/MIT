@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'CinzelBiasa';   /* Nama panggilan bebas untuk di CSS */
+    src: url('unitedcolony.ttf');
+}
+
+h1{
+    text-align: center;
+}
+
+                   
+.Logo {
+ display: block;
+    margin: 50px auto; /* 3px untuk atas-bawah, 'auto' biar otomatis ke tengah kiri-kanan */
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 35%;
+    height: auto;
+}
+
+.Tittle {
+    display: block;
+    margin: 3px auto; /* 3px untuk atas-bawah, 'auto' biar otomatis ke tengah kiri-kanan */
+    width: 25%;
+    height: auto;
+
+}
+
+p1 {
+    display: block;       /* 🛠️ INI KUNCINYA! Memaksa <p1> tunduk sama max-width & margin */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16pt;
+    text-align: center;
+    
+    max-width: 80%;       /* Sekarang ini bakal langsung berfungsi memotong lebar teks */
+    margin: 30px auto;    /* Ini juga bakal langsung otomatis membagi gap kanan-kiri */
+}
+
+/* 1. Pembungkus Utama untuk mengunci formasi 2x2 */
+.grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   /* Mengunci mati 2 kolom (kiri & kanan) */
+    
+    /* Membuat jarak kosong/gap di kanan-kiri layar menjadi lebar */
+    max-width: 60%;                   
+    margin: 50px auto;                /* 'auto' membuat posisi kotak 2x2 pas di tengah */
+    
+    gap: 40px 50px;                   /* Jarak antar kotak video */
+}
+
+/* 2. Mengatur masing-masing kotak konten sesuai class di HTML-mu */
+.kolom-grid {
+    width: 100%;
+}
+
+/* 3. Mengatur judul di atas video sesuai class di HTML-mu */
+.judul-video {
+    font-family: CinzelBiasa;
+    color: #333;
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 14pt;
+}
+
+/* 4. MENGATUR VIDEO (Langsung tembak tag video-nya seperti di HTML-mu) */
+.kolom-grid video {
+    width: 100%;                      /* Video otomatis melebar memenuhi kotak grid */
+    height: auto;                     /* Tinggi proporsional agar video tidak gepeng */
+    display: block;
+    border-radius: 8px;             /* Bikin sudut video melengkung halus */
+}
+
+
+/* 1. Sembunyikan konten utama dulu saat animasi jalan */
+#main-content {
+  display: none;
+}
+
+/* 2. Mengatur layar hitam penuh untuk animasi */
+#welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(HUman\ and\ robot.jpg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover; /* Biar gambarnya memenuhi seluruh layar */
+  background-position: center; /* Biar posisi gambar pas di tengah */
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  z-index: 9999; /* Biar selalu paling depan */
+  opacity: 5; /* Awalnya terlihat penuh */
+  transition: opacity 6s ease; /* Proses memudar selama 5 detik */
+}
+
+/* 3. Gaya Teks & Efek Animasinya */
+.bounce-text {
+  font-family: CinzelBiasa;
+    color: #ffffff;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 40pt;
+  /* Jalankan animasi bernama 'zoomInOut' selama 2 detik */
+  animation: zoomInOut 6s ease-in-out forwards; 
+}
+
+/* 4. Cara kerja animasinya (Membesar lalu Mengecil) */
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0; /* Menghilang di akhir animasi */
+  }
+}
+
+.enter-img{
+    width: 140px;          /* Atur ukuran gambar */
+    height: auto;
+    cursor: pointer;
+
+    position: absolute;
+    top: 53.5%;
+    left: 45.5%;
+    transform: translate(-50%, -50%);
+
+    transition: 0.3s;
+}
+
+.enter-img:hover{
+    transform: translate(-50%, -50%) scale(1.05);
+}
